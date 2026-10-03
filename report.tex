@@ -1,20 +1,29 @@
-\documentclass[10.5pt,a4paper]{article}
+\documentclass[10pt,a4paper]{article}
 
 % -------------------- Page Layout & Geometry --------------------
-\usepackage[a4paper,margin=1.7cm,top=1.6cm,bottom=1.6cm]{geometry}
+\usepackage[a4paper,margin=1.6cm,top=1.4cm,bottom=1.4cm]{geometry}
 \usepackage{setspace}
-\setstretch{1.06}
+\setstretch{1.04}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.4em}
+\setlength{\parskip}{0.28em}
 \setlength{\emergencystretch}{2.5em}
 
-% -------------------- Modern Clean Typography (Sans-Serif) --------------------
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[scaled=0.93]{helvet}
+% -------------------- Modern Clean Typography (XeLaTeX Native Unicode) --------------------
+% DO NOT use inputenc/fontenc with XeLaTeX. fontspec provides 100% full UTF-8 Vietnamese support.
+\usepackage{fontspec}
+\IfFontExistsTF{Arial}{
+  \setmainfont{Arial}[Scale=0.94]
+  \setsansfont{Arial}[Scale=0.94]
+}{
+  \IfFontExistsTF{Liberation Sans}{
+    \setmainfont{Liberation Sans}[Scale=0.94]
+    \setsansfont{Liberation Sans}[Scale=0.94]
+  }{
+    \setmainfont{DejaVu Sans}[Scale=0.92]
+    \setsansfont{DejaVu Sans}[Scale=0.92]
+  }
+}
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage{courier}
-
 
 % -------------------- Core Packages --------------------
 \usepackage{graphicx}
@@ -33,16 +42,15 @@
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
-\usepackage{microtype}
 
 % Float control: prevent premature page breaks
-\renewcommand{\topfraction}{0.90}
-\renewcommand{\bottomfraction}{0.85}
-\renewcommand{\textfraction}{0.10}
-\renewcommand{\floatpagefraction}{0.85}
-\setlength{\floatsep}{6pt plus 2pt minus 2pt}
-\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
-\setlength{\intextsep}{6pt plus 2pt minus 2pt}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.90}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.90}
+\setlength{\floatsep}{4pt plus 1pt minus 1pt}
+\setlength{\textfloatsep}{6pt plus 1pt minus 2pt}
+\setlength{\intextsep}{4pt plus 1pt minus 1pt}
 
 % -------------------- Minimalist High-Contrast Colors --------------------
 \definecolor{TextDark}{HTML}{111827}
@@ -62,7 +70,7 @@
 
 % -------------------- Header & Footer --------------------
 \pagestyle{fancy}
-\setlength{\headheight}{18pt}
+\setlength{\headheight}{14pt}
 \fancyhf{}
 \lhead{\textcolor{GrayDark}{\footnotesize MyStorage Assignment Report}}
 \rhead{\textcolor{GrayDark}{\footnotesize Product Engineering Intern (AI-Native)}}
@@ -72,17 +80,17 @@
 
 % -------------------- Section Formatting --------------------
 \titleformat{\section}
-  {\large\bfseries\color{TextDark}}
-  {\thesection.}{0.45em}{}
-\titlespacing*{\section}{0pt}{8pt}{3pt}
+  {\normalsize\bfseries\color{TextDark}}
+  {\thesection.}{0.4em}{}
+\titlespacing*{\section}{0pt}{6pt}{2pt}
 
 \titleformat{\subsection}
-  {\normalsize\bfseries\color{TextDark}}
-  {\thesubsection}{0.45em}{}
-\titlespacing*{\subsection}{0pt}{6pt}{2pt}
+  {\small\bfseries\color{TextDark}}
+  {\thesubsection}{0.4em}{}
+\titlespacing*{\subsection}{0pt}{4pt}{1pt}
 
-\setlist[itemize]{leftmargin=1.3em,topsep=2pt,itemsep=1.5pt,parsep=0pt}
-\setlist[enumerate]{leftmargin=1.3em,topsep=2pt,itemsep=1.5pt,parsep=0pt}
+\setlist[itemize]{leftmargin=1.2em,topsep=1pt,itemsep=1pt,parsep=0pt}
+\setlist[enumerate]{leftmargin=1.2em,topsep=1pt,itemsep=1pt,parsep=0pt}
 
 \begin{document}
 
@@ -90,14 +98,14 @@
 % Title & Candidate Metadata Block
 % ============================================================
 \begin{center}
-  {\LARGE\bfseries\color{TextDark} MYSTORAGE ASSIGNMENT REPORT}\par
-  \vspace{0.25em}
-  {\normalsize\bfseries\color{TextDark} Product Engineering Intern (AI-Native) --- STOW 2.0 Audit \& Prototype}\par
+  {\Large\bfseries\color{TextDark} MYSTORAGE ASSIGNMENT REPORT}\par
+  \vspace{0.15em}
+  {\small\bfseries\color{GrayDark} Product Engineering Intern (AI-Native) --- STOW 2.0 Audit \& Prototype}\par
 \end{center}
 
-\vspace{0.1em}
+\vspace{-0.2em}
 
-\begin{tabularx}{\textwidth}{>{\bfseries}p{3.8cm} >{\raggedright\arraybackslash}X}
+\begin{tabularx}{\textwidth}{>{\bfseries\footnotesize}p{3.5cm} >{\raggedright\arraybackslash\footnotesize}X}
 \toprule
 Candidate Name: & Nguyen Anh Phi \\
 Email / Phone: & \href{mailto:phina1011@gmail.com}{phina1011@gmail.com} $\;\mid\;$ (+84) 352 689 716 \\
@@ -107,7 +115,7 @@ Hours Spent: & \textasciitilde 5 hours (Audit: 1.5h $\mid$ Prototype \& LangGrap
 \bottomrule
 \end{tabularx}
 
-\vspace{0.3em}
+\vspace{0.2em}
 
 \section{Executive Summary \& Audit Findings on stow.mystorage.vn}
 
@@ -118,7 +126,7 @@ By testing \href{https://stow.mystorage.vn}{\texttt{stow.mystorage.vn}} from the
 \textbf{What Happened:}
 \begin{enumerate}
   \item When asked about compensation for a 3 m\textsuperscript{3} unit under the Basic tier, STOW asserted: \textit{``mức bồi thường tối đa là 10.000.000 VNĐ ạ''}. STOW conflated the \textbf{theoretical global plan cap} with the \textbf{actual per-unit compensation limit} derived from its volume (3 m\textsuperscript{3} $\times$ 500,000 VND = \textbf{1,500,000 VND}).
-  \item When asked about paid protection tiers (tested in both Vietnamese \textit{``Bạc, Vàng, Bạch kim''} and English \textit{``Silver, Gold, Platinum''}), STOW flatly denied their existence: \textit{``Dạ hiện tại MyStorage \textbf{không} có các gói tên Bạc, Vàng hay Bạch kim ạ''}, despite these tiers being documented in \texttt{/llms.txt} and the booking portal.
+  \item When asked about paid protection tiers (tested in Vietnamese \textit{``Bạc, Vàng, Bạch kim''} and English \textit{``Silver, Gold, Platinum''}), STOW flatly denied their existence: \textit{``Dạ hiện tại MyStorage \textbf{không} có các gói tên Bạc, Vàng hay Bạch kim ạ''}, despite these tiers being documented in \texttt{/llms.txt} and the booking portal.
 \end{enumerate}
 
 \textbf{Steps to Reproduce:} Query 1: \textit{``Kho 3m\textasciicircum 3 dùng gói Basic được bồi thường tối đa bao nhiêu ?''} $\rightarrow$ Query 2: \textit{``MyStorage có gói bảo hiểm Bạc, Vàng, Bạch kim không''}.
@@ -129,7 +137,7 @@ By testing \href{https://stow.mystorage.vn}{\texttt{stow.mystorage.vn}} from the
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.72\textwidth]{insurance_chat.png}
+  \includegraphics[width=0.55\textwidth]{insurance_chat.png}
   \caption{Finding 1 Illustration: STOW reports the 10M VND cap for a 3 m\textsuperscript{3} unit and explicitly denies paid protection tiers.}
   \label{fig:insurance-finding}
 \end{figure}
@@ -147,7 +155,7 @@ Vietnamese Support (\texttt{028 7771 0118}), Korean Support (\texttt{028 7771 01
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.72\textwidth]{hotline_hallucination.png}
+  \includegraphics[width=0.55\textwidth]{hotline_hallucination.png}
   \caption{Finding 2 Illustration: STOW invents fictional language branch extensions and an unauthorized emergency mobile number.}
   \label{fig:hotline-finding}
 \end{figure}
@@ -168,21 +176,21 @@ To solve these root causes under an \textbf{AI-Native} approach, I developed the
 
 \begin{figure}[htbp]
 \centering
-\resizebox{0.92\textwidth}{!}{%
+\resizebox{0.84\textwidth}{!}{%
 \begin{tikzpicture}[
-  node distance=12mm and 11mm,
-  box/.style={draw=BorderGray, thick, rounded corners=2mm, minimum height=9mm, minimum width=32mm, align=center, fill=white},
-  agent/.style={box, draw=TextDark, fill=GrayLight, minimum width=44mm},
-  tool/.style={box, draw=TextDark, fill=GrayLight, minimum width=44mm, minimum height=14mm},
-  arrow/.style={-{Latex[length=2.5mm]}, thick, draw=GrayDark}
+  node distance=9mm and 8mm,
+  box/.style={draw=BorderGray, thick, rounded corners=2mm, minimum height=8mm, minimum width=28mm, align=center, fill=white, font=\small},
+  agent/.style={box, draw=TextDark, fill=GrayLight, minimum width=38mm},
+  tool/.style={box, draw=TextDark, fill=GrayLight, minimum width=38mm, minimum height=12mm},
+  arrow/.style={-{Latex[length=2.2mm]}, thick, draw=GrayDark}
 ]
   \node[box] (customer) {Customer};
   \node[box, right=of customer] (ui) {Streamlit UI};
   \node[agent, right=of ui] (agent) {LangGraph ReAct Agent};
 
-  \node[tool, below left=16mm and -1mm of agent] (kb) {Tool 1: KB Search\\\footnotesize Grounded facts from \texttt{llms.txt}};
-  \node[tool, below=16mm of agent] (calc) {Tool 2: Insurance Calc\\\footnotesize Deterministic Python math};
-  \node[tool, below right=16mm and -1mm of agent] (contact) {Tool 3: Contact Info\\\footnotesize Canonical hotline 028 7770 0117};
+  \node[tool, below left=12mm and -2mm of agent] (kb) {Tool 1: KB Search\\\scriptsize Grounded facts from \texttt{llms.txt}};
+  \node[tool, below=12mm of agent] (calc) {Tool 2: Insurance Calc\\\scriptsize Deterministic Python math};
+  \node[tool, below right=12mm and -2mm of agent] (contact) {Tool 3: Contact Info\\\scriptsize Canonical hotline 028 7770 0117};
 
   \draw[arrow] (customer) -- (ui);
   \draw[arrow] (ui) -- (agent);
@@ -191,45 +199,47 @@ To solve these root causes under an \textbf{AI-Native} approach, I developed the
   \draw[arrow] (agent) -- (contact);
 \end{tikzpicture}%
 }
-\caption{STOW 2.0 Architecture: Decoupling probabilistic reasoning (LLM) from deterministic arithmetic and verified facts (Python Tools).}
+\vspace{-0.4em}
+\caption{STOW 2.0 Architecture: Decoupling probabilistic reasoning (LLM) from deterministic arithmetic and verified facts.}
 \label{fig:architecture}
 \end{figure}
 
 \subsection*{Empirical Prototype Verification \& Tool Tracing}
 
-The interactive Streamlit prototype demonstrates how the ReAct agent executes deterministic tools to eliminate hallucinations in real time:
+The interactive Streamlit prototype demonstrates how the ReAct agent executes deterministic tools to eliminate hallucinations:
 
 \begin{figure}[htbp]
   \centering
-  \begin{subfigure}[t]{0.48\textwidth}
+  \begin{subfigure}[t]{0.45\textwidth}
     \centering
     \includegraphics[width=\linewidth]{prototype_insurance.png}
     \caption{\textbf{Resolution of Finding 1:} Executes \texttt{calculate\_insurance} for exact 1.5M VND arithmetic and displays all 4 tiers.}
     \label{fig:proto-insurance}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[t]{0.48\textwidth}
+  \begin{subfigure}[t]{0.45\textwidth}
     \centering
     \includegraphics[width=\linewidth]{prototype_hotline.png}
-    \caption{\textbf{Resolution of Finding 2:} Invokes \texttt{get\_contact\_info} returning only 028 7770 0117, warning against fictional branch lines.}
+    \caption{\textbf{Resolution of Finding 2:} Invokes \texttt{get\_contact\_info} returning only 028 7770 0117, warning against fictional numbers.}
     \label{fig:proto-hotline}
   \end{subfigure}
   
-  \vspace{0.4em}
+  \vspace{0.2em}
   
-  \begin{subfigure}[t]{0.48\textwidth}
+  \begin{subfigure}[t]{0.45\textwidth}
     \centering
     \includegraphics[width=\linewidth]{prototype_booking_cta.png}
-    \caption{\textbf{Resolution of Finding 3:} Explains service differences and surfaces an immediate, direct booking Call-to-Action link.}
+    \caption{\textbf{Resolution of Finding 3:} Explains service differences and surfaces an immediate booking Call-to-Action link.}
     \label{fig:proto-cta}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[t]{0.48\textwidth}
+  \begin{subfigure}[t]{0.45\textwidth}
     \centering
     \includegraphics[width=\linewidth]{prototype_locations.png}
-    \caption{\textbf{Grounded Knowledge Retrieval:} Invokes \texttt{search\_mystorage\_kb} to accurately list all verified facilities across HCMC.}
+    \caption{\textbf{Grounded Knowledge Retrieval:} Invokes \texttt{search\_mystorage\_kb} to accurately list verified facilities across HCMC.}
     \label{fig:proto-locations}
   \end{subfigure}
+  \vspace{-0.3em}
   \caption{STOW 2.0 Live Prototype Verification: UI traces showing tool calling, deterministic outputs, and proactive conversion CTAs.}
   \label{fig:prototype-verification}
 \end{figure}
@@ -240,9 +250,9 @@ Executing the automated benchmark suite via \texttt{eval.py} demonstrated total 
 
 \begin{table}[htbp]
 \centering
-\small
-\renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{\textwidth}{>{\bfseries}p{3.2cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\centering\arraybackslash}p{1.6cm}}
+\footnotesize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{3cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\centering\arraybackslash}p{1.4cm}}
 \toprule
 Evaluation Metric & Baseline (Original STOW) & STOW 2.0 (Grounded Agent) & Result \\
 \midrule
@@ -251,13 +261,14 @@ Paid Protection Tiers & Denies Silver/Gold/Platinum exist & Accurately lists all
 Contact Hotlines & Hallucinates 1900..., 028 7771 0118... & Exclusively provides \textbf{028 7770 0117} & \textbf{PASS} \\
 \bottomrule
 \end{tabularx}
+\vspace{-0.3em}
 \caption{Automated Benchmark Comparison: Baseline vs. STOW 2.0 (100\% pass rate across 6/6 test assertions).}
 \end{table}
 
 \section{What Claude Code Produced That I Rejected or Rewrote, and Why}
 
 \begin{quote}
-\small\itshape
+\footnotesize\itshape
 ``What 'AI-native' means here: Claude Code is our default way of building. You read every line the model produces and you can defend it in review. If you can't explain it, it doesn't ship.''
 \end{quote}
 
@@ -279,7 +290,7 @@ Given two additional hours, I would implement:
 \section{Short Note for Application Endpoint (\textless{} 300 words)}
 
 \begin{quote}
-\small\itshape
+\footnotesize\itshape
 ``What's the last thing you built with an AI coding tool, and what did you have to fix yourself?''
 \end{quote}
 
