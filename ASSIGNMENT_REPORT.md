@@ -4,7 +4,7 @@
 **Email:** phina1011@gmail.com  
 **Phone:** [Your real phone number]  
 **GitHub Repository:** `https://github.com/AnhPhiNe/mystorage-ai-native`  
-**Live Demo Prototype:** `https://[your-app-name].streamlit.app`  
+**Live Demo Prototype:** `https://mystorage-ai-native.streamlit.app`  
 **Hours Spent:** ~5 hours (Audit: 1.5h | Prototype & LangGraph: 2.5h | Benchmark & Report: 1h)
 
 ---

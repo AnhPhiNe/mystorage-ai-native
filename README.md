@@ -3,9 +3,9 @@
 > **Working Prototype & Automated Evaluation Benchmark** designed to eliminate hallucinations, enforce deterministic policy arithmetic, and drive booking conversions for MyStorage's conversational sales pipeline.  
 > **Target Role:** Product Engineering Intern (AI-Native) — MyStorage (Ho Chi Minh City, Vietnam).
 
+[![Live Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mystorage-ai-native.streamlit.app/)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/Framework-LangGraph%20%7C%20ReAct-orange.svg)](https://github.com/langchain-ai/langgraph)
-[![UI](https://img.shields.io/badge/UI-Streamlit-red.svg)](https://streamlit.io/)
 [![Evaluation](https://img.shields.io/badge/Benchmark-100%25%20PASS-brightgreen.svg)](eval.py)
 
 ---
