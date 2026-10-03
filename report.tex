@@ -347,15 +347,17 @@ Given two additional hours, I would implement:
   arc=2mm,
   left=4mm,right=4mm,top=3mm,bottom=3mm
 ]
-The last system I built with an AI coding tool is \textbf{STOW 2.0}, an AI-native customer assistant prototype designed to eliminate hallucinations in MyStorage's sales conversations.
+The last system I built with an AI coding tool is a \textbf{Multi-Cohort RAG Chatbot} for the HCMUE Student Handbook, designed to handle complex tabular queries, multi-intent decomposition, and cross-cohort policy comparisons.
 
-While using AI coding assistants to scaffold the architecture, the model initially attempted to resolve calculation errors and contact hallucinations purely through \textbf{extended system prompt engineering} (relying on the LLM's internal reasoning to do arithmetic in-flight).
+My primary engineering tool was \textbf{Claude Code}. While accelerating development, the agent exhibited two recurring failure modes:
+\begin{enumerate}[leftmargin=1.5em]
+  \item \textbf{Over-engineering \& Context Drift:} Despite defining a strict \texttt{Spec.md} upfront, Claude Code frequently drifted toward bloated architectures, especially after context compaction cycles when earlier constraints were pruned. I had to actively supervise the session, pushing back in code reviews to maintain lean modularity.
+  \item \textbf{Brittle Heuristics Over Generalization:} When building the query routing module, Claude Code took naive shortcuts. Rather than evaluating holistic semantic intent, it generated rigid rule-based classification---hardcoding keywords like \textit{``ph\`ong''} (room/department) directly to an \texttt{Office} category, misrouting queries that merely referenced a physical room or unrelated intent.
+\end{enumerate}
 
-I rejected this approach because language models are inherently probabilistic; relying on prompt instructions for dynamic pricing, volume-based insurance math, and contact invariants inevitably fails under conversational pressure or complex customer prompts.
+\textbf{What I fixed myself:} I rejected Claude Code's brittle heuristic logic. Instead, I re-architected the router to use structured semantic classification (enforced via Pydantic schemas) coupled with targeted few-shot intent grounding. I also instituted synthetic edge-case tests to verify that ambiguous phrasing was classified accurately.
 
-I intervened and rewrote the solution into a \textbf{hybrid Agentic Tool-Calling architecture} using Python and LangGraph. I built deterministic tools (\texttt{calculate\_insurance} and \texttt{get\_contact\_info}) so that math computations ($\min(V \times 500{,}000,\ 10{,}000{,}000)$) are strictly executed by deterministic Python code rather than token prediction. Additionally, when setting up the model connection, I diagnosed and resolved transport timeout issues on Windows by explicitly configuring REST transport over default gRPC framing.
-
-The result is a robust, production-ready agent that achieved a \textbf{100\% pass rate} across our automated evaluation benchmark suite, ensuring zero hallucinations on emergency contact numbers and absolute mathematical precision in insurance calculations.
+This experience reinforced that AI coding assistants naturally optimize for localized quick-fixes; human engineering judgment is essential to enforce modularity, scalability, and robust semantic reasoning.
 \end{tcolorbox}
 
 \end{document}
