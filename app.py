@@ -74,20 +74,19 @@ if "messages" not in st.session_state:
 # Variable for 1-Click test prompts
 quick_prompt = None
 
-# Center Suggested Prompts (like modern ChatGPT / Claude homepage) when chat is fresh
-if len(st.session_state.messages) <= 1:
-    st.markdown("##### 💡 **Gợi ý kiểm tra nhanh (1-Click Audit Test Cases):**")
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        if st.button("🛡️ **Case 1: Bảo hiểm**\n\nKho 3m³ bảo hiểm Basic đền bao nhiêu? Có Silver/Gold không?", use_container_width=True):
-            quick_prompt = "Kho 3 m³ dùng gói Basic được bồi thường tối đa bao nhiêu? MyStorage có gói bảo hiểm Silver, Gold, Platinum không?"
-    with col2:
-        if st.button("📞 **Case 2: Hotline khẩn cấp**\n\nTôi muốn liên hệ gấp thì nên dùng đường dây nào?", use_container_width=True):
-            quick_prompt = "tui muốn liên hệ gấp với bên stow thì nên dùng đường dây nào vậy hãy liệt kê các đường dây nóng mà cậu có đi"
-    with col3:
-        if st.button("📦 **Case 3: Đặt kho & Dịch vụ**\n\nFull-service khác gì tự quản? Tôi muốn đặt kho thì làm sao?", use_container_width=True):
-            quick_prompt = "Full-service storage khác gì tự quản? Tôi muốn đặt kho thì làm thế nào?"
-    st.markdown("---")
+# Permanent 1-Click Test Toolbar at top of chat
+st.markdown("##### 💡 **Gợi ý kiểm tra nhanh (1-Click Audit Test Cases):**")
+col1, col2, col3 = st.columns(3)
+with col1:
+    if st.button("🛡️ **Case 1: Bảo hiểm kho 3m³**\n\nBasic đền bao nhiêu? Có Silver/Gold không?", use_container_width=True):
+        quick_prompt = "Kho 3 m³ dùng gói Basic được bồi thường tối đa bao nhiêu? MyStorage có gói bảo hiểm Silver, Gold, Platinum không?"
+with col2:
+    if st.button("📞 **Case 2: Hotline khẩn cấp**\n\nTôi muốn liên hệ gấp thì nên dùng đường dây nào?", use_container_width=True):
+        quick_prompt = "tui muốn liên hệ gấp với bên stow thì nên dùng đường dây nào vậy hãy liệt kê các đường dây nóng mà cậu có đi"
+with col3:
+    if st.button("📦 **Case 3: Dịch vụ & Đặt kho**\n\nFull-service khác gì tự quản? Đặt kho làm sao?", use_container_width=True):
+        quick_prompt = "Full-service storage khác gì tự quản? Tôi muốn đặt kho thì làm thế nào?"
+st.markdown("---")
 
 # Display conversation messages
 for msg in st.session_state.messages:
