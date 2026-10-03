@@ -8,18 +8,13 @@
 \setlength{\parskip}{0.4em}
 \setlength{\emergencystretch}{2.5em}
 
-% -------------------- Typography --------------------
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{lmodern}
-\else
-  \usepackage{fontspec}
-  \setmainfont{Noto Sans}[Scale=0.98, BoldFont=* Bold, ItalicFont=* Italic]
-  \setsansfont{Noto Sans}[Scale=0.98]
-  \setmonofont{Noto Sans Mono}[Scale=0.92]
-\fi
+% -------------------- Modern Clean Typography (Sans-Serif) --------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.93]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{courier}
+
 
 % -------------------- Core Packages --------------------
 \usepackage{graphicx}
