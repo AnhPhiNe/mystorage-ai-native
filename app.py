@@ -17,64 +17,79 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("📦 MyStorage AI Assistant (STOW 2.0)")
-st.caption("AI-Native Prototype giải quyết triệt để vấn đề Ảo giác (Hallucination) cho STOW Assistant")
+# Locked LLM Configuration
+provider = "DeepInfra"
+model_name = "deepseek-ai/DeepSeek-V4.1-Flash"
 
-# Sidebar Configuration
+# Check secrets or environment
+env_key = ""
+if hasattr(st, "secrets") and "DEEPINFRA_API_KEY" in st.secrets:
+    env_key = st.secrets["DEEPINFRA_API_KEY"]
+if not env_key:
+    env_key = os.getenv("DEEPINFRA_API_KEY", "")
+
+api_key = env_key
+
+# Sidebar Configuration - Minimal, Compact & Professional
 with st.sidebar:
-    st.header("⚡ LLM Engine & Architecture")
+    st.subheader("📦 STOW 2.0 (AI-Native)")
+    st.caption("Product Engineering Intern Prototype")
     
-    provider = "DeepInfra"
-    model_name = "deepseek-ai/DeepSeek-V4.1-Flash"
-    
-    # Check secrets or environment
-    env_key = ""
-    if hasattr(st, "secrets") and "DEEPINFRA_API_KEY" in st.secrets:
-        env_key = st.secrets["DEEPINFRA_API_KEY"]
-    if not env_key:
-        env_key = os.getenv("DEEPINFRA_API_KEY", "")
-
     st.markdown(
         """
-        * **Provider:** DeepInfra
-        * **Model:** `DeepSeek-V4.1-Flash`
-        * **Pattern:** LangGraph ReAct + Tools
-        * **Knowledge Base:** Grounded `/llms.txt`
+        * ⚡ **Model:** `DeepSeek-V4.1-Flash`
+        * 🛠 **Engine:** LangGraph ReAct + Tools
+        * 📚 **Grounding:** Canonical `/llms.txt`
+        * 🟢 **Status:** Online & Ready
         """
     )
-
-    if env_key:
-        st.success("🟢 **Sẵn sàng thử nghiệm** (API Key đã được cấu hình)")
-        api_key = env_key
-    else:
-        api_key = st.text_input("DeepInfra API Key", type="password", placeholder="Nhập API key tại đây...")
-
+    
     st.markdown("---")
-    st.subheader("🎯 1-Click Demo Finding Test Cases")
-    st.caption("Các test case bắt lỗi ảo giác của STOW gốc theo bài Audit:")
-
-    quick_prompt = None
-    if st.button("🧪 Case 1: Kho 3m³ bảo hiểm Basic đền bao nhiêu? Có Silver/Gold không?", use_container_width=True):
-        quick_prompt = "Kho 3 m³ dùng gói Basic được bồi thường tối đa bao nhiêu? MyStorage có gói bảo hiểm Silver, Gold, Platinum không?"
-
-    if st.button("🧪 Case 2: Hỏi hotline gấp & các đường dây nóng?", use_container_width=True):
-        quick_prompt = "tui muốn liên hệ gấp với bên stow thì nên dùng đường dây nào vậy hãy liệt kê các đường dây nóng mà cậu có đi"
-
-    if st.button("🧪 Case 3: Hỏi địa điểm kho & dịch vụ Full-Service", use_container_width=True):
-        quick_prompt = "MyStorage có những địa điểm kho nào tại TP.HCM và dịch vụ Full-Service là gì?"
-
-    st.markdown("---")
-    if st.button("🧹 Xóa lịch sử trò chuyện", use_container_width=True):
-        st.session_state.messages = []
+    if st.button("🧹 Bắt đầu lại (Clear Chat)", use_container_width=True):
+        st.session_state.messages = [
+            {"role": "assistant", "content": "Xin chào anh/chị! Em là **STOW 2.0** - Trợ lý AI thế hệ mới của MyStorage. Em có thể hỗ trợ anh/chị chọn kích thước kho, tra cứu bảng giá, chính sách bảo vệ hoặc đặt lịch lưu trữ đồ đạc ạ!", "traces": []}
+        ]
         st.rerun()
+
+    st.markdown("---")
+    st.markdown("🔗 **Liên kết hữu ích:**")
+    st.markdown("- [GitHub Repo](https://github.com/AnhPhiNe/mystorage-ai-native)")
+    st.markdown("- [MyStorage llms.txt](https://mystorage.vn/llms.txt)")
+    st.markdown("- [Cổng đặt kho chính thức](https://booking.mystorage.vn)")
+
+    if not api_key:
+        st.warning("⚠️ Chưa phát hiện API Key trong Secrets/Env.")
+        api_key = st.text_input("Nhập DeepInfra API Key:", type="password")
+
+# Main Header
+st.title("📦 MyStorage AI Assistant (STOW 2.0)")
+st.caption("AI-Native ReAct Agent: Loại bỏ Ảo giác (Zero Hallucination) • Tính toán toán học xác định • Kêu gọi hành động đặt kho trực tiếp")
 
 # Initialize session state
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "assistant", "content": "Xin chào anh/chị! Em là STOW 2.0 - Trợ lý AI của MyStorage. Em có thể hỗ trợ anh/chị chọn kích thước kho, tra cứu bảng giá, chính sách bảo vệ hoặc đặt lịch lưu trữ đồ đạc ạ!", "traces": []}
+        {"role": "assistant", "content": "Xin chào anh/chị! Em là **STOW 2.0** - Trợ lý AI thế hệ mới của MyStorage. Em có thể hỗ trợ anh/chị chọn kích thước kho, tra cứu bảng giá, chính sách bảo hiểm hoặc đặt lịch lưu trữ đồ đạc ạ!", "traces": []}
     ]
 
-# Display conversation
+# Variable for 1-Click test prompts
+quick_prompt = None
+
+# Center Suggested Prompts (like modern ChatGPT / Claude homepage) when chat is fresh
+if len(st.session_state.messages) <= 1:
+    st.markdown("##### 💡 **Gợi ý kiểm tra nhanh (1-Click Audit Test Cases):**")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        if st.button("🛡️ **Case 1: Bảo hiểm**\n\nKho 3m³ bảo hiểm Basic đền bao nhiêu? Có Silver/Gold không?", use_container_width=True):
+            quick_prompt = "Kho 3 m³ dùng gói Basic được bồi thường tối đa bao nhiêu? MyStorage có gói bảo hiểm Silver, Gold, Platinum không?"
+    with col2:
+        if st.button("📞 **Case 2: Hotline khẩn cấp**\n\nTôi muốn liên hệ gấp thì nên dùng đường dây nào?", use_container_width=True):
+            quick_prompt = "tui muốn liên hệ gấp với bên stow thì nên dùng đường dây nào vậy hãy liệt kê các đường dây nóng mà cậu có đi"
+    with col3:
+        if st.button("📦 **Case 3: Đặt kho & Dịch vụ**\n\nFull-service khác gì tự quản? Tôi muốn đặt kho thì làm sao?", use_container_width=True):
+            quick_prompt = "Full-service storage khác gì tự quản? Tôi muốn đặt kho thì làm thế nào?"
+    st.markdown("---")
+
+# Display conversation messages
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
@@ -84,13 +99,13 @@ for msg in st.session_state.messages:
                     st.code(f"Tool: {t['tool']}\nInput: {t['args']}\nOutput:\n{t['output']}", language="yaml")
 
 # Handle input
-user_input = st.chat_input("Hỏi về kho, kích thước, hotline, hoặc gói bảo hiểm...")
+user_input = st.chat_input("Hỏi về kích thước kho, giá thuê, hotline, hoặc gói bảo hiểm...")
 if quick_prompt:
     user_input = quick_prompt
 
 if user_input:
     if not api_key:
-        st.error(f"Vui lòng nhập {provider} API Key trong thanh bên trái để trò chuyện.")
+        st.error("Vui lòng cấu hình DEEPINFRA_API_KEY để trò chuyện.")
     else:
         # Add user message
         st.session_state.messages.append({"role": "user", "content": user_input, "traces": []})
@@ -155,4 +170,10 @@ if user_input:
                     })
 
                 except Exception as e:
-                    st.error(f"Đã xảy ra lỗi khi thực thi Agent: {e}")
+                    err_msg = f"Đã xảy ra lỗi: {str(e)}"
+                    st.error(err_msg)
+                    st.session_state.messages.append({
+                        "role": "assistant",
+                        "content": err_msg,
+                        "traces": []
+                    })
