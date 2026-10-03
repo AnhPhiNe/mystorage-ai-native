@@ -49,19 +49,18 @@
 \setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
 \setlength{\intextsep}{6pt plus 2pt minus 2pt}
 
-% -------------------- Minimalist Professional Colors --------------------
-\definecolor{BrandBlue}{HTML}{0C7EBD}
-\definecolor{TextDark}{HTML}{1F2937}
-\definecolor{GrayDark}{HTML}{4B5563}
+% -------------------- Minimalist High-Contrast Colors --------------------
+\definecolor{TextDark}{HTML}{111827}
+\definecolor{GrayDark}{HTML}{374151}
 \definecolor{GrayLight}{HTML}{F3F4F6}
 \definecolor{BorderGray}{HTML}{D1D5DB}
 
-% -------------------- Hyperlinks --------------------
+% -------------------- Hyperlinks (Clean & High-Contrast) --------------------
 \hypersetup{
   colorlinks=true,
-  linkcolor=BrandBlue,
-  urlcolor=BrandBlue,
-  citecolor=BrandBlue,
+  linkcolor=black,
+  urlcolor=black,
+  citecolor=black,
   pdftitle={MyStorage Assignment Report - Nguyen Anh Phi},
   pdfauthor={Nguyen Anh Phi}
 }
@@ -83,7 +82,7 @@
 \titlespacing*{\section}{0pt}{8pt}{3pt}
 
 \titleformat{\subsection}
-  {\normalsize\bfseries\color{BrandBlue}}
+  {\normalsize\bfseries\color{TextDark}}
   {\thesubsection}{0.45em}{}
 \titlespacing*{\subsection}{0pt}{6pt}{2pt}
 
@@ -98,7 +97,7 @@
 \begin{center}
   {\LARGE\bfseries\color{TextDark} MYSTORAGE ASSIGNMENT REPORT}\par
   \vspace{0.25em}
-  {\normalsize\bfseries\color{BrandBlue} Product Engineering Intern (AI-Native) --- STOW 2.0 Audit \& Prototype}\par
+  {\normalsize\bfseries\color{TextDark} Product Engineering Intern (AI-Native) --- STOW 2.0 Audit \& Prototype}\par
 \end{center}
 
 \vspace{0.1em}
@@ -178,7 +177,7 @@ To solve these root causes under an \textbf{AI-Native} approach, I developed the
 \begin{tikzpicture}[
   node distance=12mm and 11mm,
   box/.style={draw=BorderGray, thick, rounded corners=2mm, minimum height=9mm, minimum width=32mm, align=center, fill=white},
-  agent/.style={box, draw=BrandBlue, fill=BrandBlue!6, minimum width=44mm},
+  agent/.style={box, draw=TextDark, fill=GrayLight, minimum width=44mm},
   tool/.style={box, draw=TextDark, fill=GrayLight, minimum width=44mm, minimum height=14mm},
   arrow/.style={-{Latex[length=2.5mm]}, thick, draw=GrayDark}
 ]
