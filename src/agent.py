@@ -73,17 +73,24 @@ class FallbackReActAgent:
 
 def create_mystorage_agent(llm):
     """
-    Creates a compiled LangGraph ReAct agent if langgraph is available,
-    otherwise uses the robust FallbackReActAgent matching the exact same interface.
+    Creates a compiled LangGraph ReAct agent if available and compatible,
+    supporting both 'prompt' (LangGraph >=0.2) and 'state_modifier' (LangGraph 0.1),
+    with robust FallbackReActAgent ensuring 100% uptime.
     """
     try:
+        import inspect
         from langgraph.prebuilt import create_react_agent
-        return create_react_agent(
-            model=llm,
-            tools=TOOLS,
-            state_modifier=SYSTEM_PROMPT
-        )
-    except ImportError:
+        
+        params = inspect.signature(create_react_agent).parameters
+        if "prompt" in params:
+            return create_react_agent(model=llm, tools=TOOLS, prompt=SYSTEM_PROMPT)
+        elif "state_modifier" in params:
+            return create_react_agent(model=llm, tools=TOOLS, state_modifier=SYSTEM_PROMPT)
+        elif "messages_modifier" in params:
+            return create_react_agent(model=llm, tools=TOOLS, messages_modifier=SYSTEM_PROMPT)
+        else:
+            return create_react_agent(model=llm, tools=TOOLS)
+    except Exception:
         return FallbackReActAgent(
             model=llm,
             tools=TOOLS,
