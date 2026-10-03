@@ -22,39 +22,32 @@ st.caption("AI-Native Prototype giải quyết triệt để vấn đề Ảo gi
 
 # Sidebar Configuration
 with st.sidebar:
-    st.header("⚙️ Cấu hình Model & API")
-    provider = st.selectbox("Chọn nhà cung cấp LLM", ["DeepInfra", "Google", "OpenAI"], index=0)
+    st.header("⚡ LLM Engine & Architecture")
     
-    if provider == "DeepInfra":
-        model_name = st.selectbox("Model", ["deepseek-ai/DeepSeek-V4.1-Flash", "deepseek-ai/DeepSeek-V3"], index=0)
-    elif provider == "Google":
-        model_name = st.selectbox("Model", ["gemini-3.8-flash", "gemini-2.5-flash", "gemini-1.5-flash"], index=0)
-    else:
-        model_name = st.selectbox("Model", ["gpt-4o-mini", "gpt-4o"], index=0)
-
+    provider = "DeepInfra"
+    model_name = "deepseek-ai/DeepSeek-V4.1-Flash"
+    
     # Check secrets or environment
     env_key = ""
-    if hasattr(st, "secrets"):
-        if provider == "DeepInfra" and "DEEPINFRA_API_KEY" in st.secrets:
-            env_key = st.secrets["DEEPINFRA_API_KEY"]
-        elif provider == "Google" and "GOOGLE_API_KEY" in st.secrets:
-            env_key = st.secrets["GOOGLE_API_KEY"]
-        elif provider == "OpenAI" and "OPENAI_API_KEY" in st.secrets:
-            env_key = st.secrets["OPENAI_API_KEY"]
-
+    if hasattr(st, "secrets") and "DEEPINFRA_API_KEY" in st.secrets:
+        env_key = st.secrets["DEEPINFRA_API_KEY"]
     if not env_key:
-        if provider == "DeepInfra":
-            env_key = os.getenv("DEEPINFRA_API_KEY", "")
-        elif provider == "Google":
-            env_key = os.getenv("GOOGLE_API_KEY", "")
-        else:
-            env_key = os.getenv("OPENAI_API_KEY", "")
+        env_key = os.getenv("DEEPINFRA_API_KEY", "")
+
+    st.markdown(
+        """
+        * **Provider:** DeepInfra
+        * **Model:** `DeepSeek-V4.1-Flash`
+        * **Pattern:** LangGraph ReAct + Tools
+        * **Knowledge Base:** Grounded `/llms.txt`
+        """
+    )
 
     if env_key:
-        st.success(f"🔒 {provider} API Key: Connected (Pre-configured)")
+        st.success("🟢 **Sẵn sàng thử nghiệm** (API Key đã được cấu hình)")
         api_key = env_key
     else:
-        api_key = st.text_input(f"{provider} API Key", type="password", placeholder="Nhập API key tại đây...")
+        api_key = st.text_input("DeepInfra API Key", type="password", placeholder="Nhập API key tại đây...")
 
     st.markdown("---")
     st.subheader("🎯 1-Click Demo Finding Test Cases")
