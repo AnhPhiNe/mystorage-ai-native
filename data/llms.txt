@@ -1,0 +1,77 @@
+# MyStorage
+
+> MyStorage is Ho Chi Minh City's self-storage and full-service storage company, founded in 2019 under US and German management. It rents private self-storage units (1–23 CBM) and full-service (pickup, delivery, and shelf-space) storage across 8 facilities in Ho Chi Minh City and Dong Nai, Vietnam, plus specialty storage for luggage, wine, business documents, furniture, and motorbikes.
+
+Canonical site: https://mystorage.vn/ (English). Also served in Vietnamese (`/vi/`), Korean (`/ko/`), and Japanese (`/ja/`) — see Locales below. Last verified: 2026-09-13.
+
+## Company facts
+
+- Founded 2019, under US and German management; official member of the Self Storage Association of Asia (SSAA) and the American Chamber of Commerce in Vietnam.
+- 650+ five-star reviews from verified customers on Google.
+- Headquarters: 375 Vo Nguyen Giap Street, An Khanh Ward, Thu Duc City, Ho Chi Minh City, Vietnam.
+- Phone: 028 7770 0117 (+84 28 7770 0117). Email: hello@mystorage.vn.
+- Support hours: Monday–Saturday, 9am–6pm (remote support on Sundays); typical reply time is 2 hours during business hours.
+- Booking: https://booking.mystorage.vn/en/book?step=service — book online, or contact by phone/email/messenger.
+- AI size calculator (get a quote by describing what you're storing): https://www.mystorage.ai/
+
+## Services
+
+- [Self Storage](https://mystorage.vn/services/self-storage/): Private, air-conditioned self-storage units from 1–23 CBM with 24/7 access; 480+ units across HCMC.
+- [Full Service Storage](https://mystorage.vn/services/full-service-storage/): Pickup, delivery, and storage handled entirely by MyStorage staff — no facility visit needed; free storage tubs included.
+- [Luggage Storage](https://mystorage.vn/services/luggage-storage-saigon/): Hourly/daily luggage storage from 54,000 VND/hour in District 1, District 2, and District 7, plus citywide pickup and delivery.
+- [Document Storage](https://mystorage.vn/services/document-storage-saigon/): Business records storage, 1–10 m² units, 24/7 retrieval, 1-month minimum rental.
+- [Wine Storage](https://mystorage.vn/wine-storage/): Climate-controlled at 12–15°C and 60–70% humidity, 24/7 access.
+- [Motorbike / Bike Storage](https://mystorage.vn/services/motorbike-storage-saigon/): Secure mini-warehouse storage for motorbikes and bicycles.
+- [Business Storage (B2B)](https://mystorage.vn/services/business-storage/): Storage rooms for company inventory and equipment across 4+ HCMC locations.
+- [Cold Storage](https://mystorage.vn/services/cold-storage/): Temperature-controlled storage for heat-sensitive items, 24/7 climate control.
+- [Air-Conditioned Storage](https://mystorage.vn/services/air-conditioned-storage/): Climate-controlled units from 559,000 VND (~US$21) per month.
+- [Furniture Storage](https://mystorage.vn/services/furniture-storage-saigon/): Furniture and household-item storage from 559,000 VND (~US$21) per month.
+- [House Moving](https://mystorage.vn/services/house-moving/): Full-service and long-distance moving, via partnership with Asian Tigers.
+- [Packing Materials](https://mystorage.vn/packing-materials/): Boxes and packing supplies for sale/delivery.
+- [Size Guide](https://mystorage.vn/size-guide/): Unit sizes from 1 to 23 CBM, with what fits in each size.
+
+## Locations
+
+- [Headquarters & Self Storage — 375 Vo Nguyen Giap St](https://mystorage.vn/375-vo-nguyen-giap-storage-facility/): An Khanh Ward, Thu Duc City, HCMC. Air-conditioned self-storage units, 24/7 access.
+- [Self Storage at An Phu Sport Park](https://mystorage.vn/an-phu-sport-park/): 90 Song Hanh St, An Phu Ward, Thu Duc City, HCMC.
+- [Inside Ministop, Tran Trong Cung](https://mystorage.vn/ministop-tran-trong-cung-d7/): 69 Tran Trong Cung St, Tan Thuan Dong, District 7, HCMC.
+- [Inside Ministop, Tran Khac Chan](https://mystorage.vn/ministop-79-tran-khac-chan-d1/): 79 Tran Khac Chan St, Tan Dinh Ward, District 1, HCMC. 24/7 self-service access.
+- [Self Storage at Centre Mall](https://mystorage.vn/self-storage-locker-centre-mall-district-6/): 1466 Vo Van Kiet St, Binh Tien, District 6, HCMC. 24/7 self-service access.
+- [MyStorage at The Nassim](https://mystorage.vn/nassim/): 30A Street No.11, Thao Dien Ward, Thu Duc City, HCMC — self-storage units.
+- [Lockers inside Ministop, MT Eastmark City](https://mystorage.vn/ministop-mt-eastmark-city-d9/): 39A Street 149C, Long Truong Ward, Thu Duc City (District 9), HCMC. 24/7 self-service locker access.
+- Shelf Space Warehouse, Dong Nai: Nhon Trach 3 Industrial Zone, Nhon Trach, Dong Nai Province — 2,000+ sqm full-service/shelf-space storage.
+- Self Storage at Binh Loi (opening soon): 19 National Highway 13, Hiep Binh Chanh, Thu Duc City, HCMC.
+- [All locations overview](https://mystorage.vn/storage-facility/): full list with maps and directions.
+
+## Common questions
+
+Q: What is MyStorage?
+A: MyStorage is a self-storage and full-service storage company in Ho Chi Minh City, Vietnam, founded in 2019 under US and German management, with 8 facilities across HCMC and Dong Nai.
+
+Q: How much does self storage cost in Ho Chi Minh City with MyStorage?
+A: Unit sizes range from 1 to 23 CBM. Air-conditioned and furniture storage start from 559,000 VND (~US$21)/month; luggage storage starts from 54,000 VND/hour. Exact pricing by size is quoted via booking.mystorage.vn or the mystorage.ai size calculator.
+
+Q: What's the difference between Self Storage and Full Service Storage?
+A: Self Storage gives customers a private unit they can access directly and independently, any time. Full Service Storage is pickup-and-delivery: MyStorage staff retrieve, store, and return items, so the customer never has to visit a facility themselves.
+
+Q: Is MyStorage accessible 24/7?
+A: Self-storage locker locations (including Ministop Tran Khac Chan and Centre Mall) offer 24/7 self-service access. Full-service/shelf-space storage (e.g. the Dong Nai warehouse) uses staff-accompanied access during business hours instead.
+
+Q: Does MyStorage offer luggage storage in Saigon?
+A: Yes — hourly and daily luggage storage from 54,000 VND/hour in District 1, District 2, and District 7, with citywide pickup and delivery.
+
+Q: Does MyStorage insure stored items?
+A: Yes. A free Basic protection plan covers up to VND 500,000/CBM (max VND 10,000,000); paid Silver, Gold, and Platinum tiers cover progressively more (up to VND 25,000,000 / 50,000,000 / 100,000,000).
+- Basic (Free): 500,000 VND/CBM, max 10,000,000 VND coverage.
+- Silver: 50,000 VND/month, max 25,000,000 VND coverage.
+- Gold: 100,000 VND/month, max 50,000,000 VND coverage.
+- Platinum: 200,000 VND/month, max 100,000,000 VND coverage.
+
+Q: How do I book storage with MyStorage?
+A: Book online at booking.mystorage.vn, or contact MyStorage by phone (028 7770 0117), email (hello@mystorage.vn), or messenger; staff confirm details and arrange pickup or unit access.
+
+Q: What languages is the MyStorage website available in?
+A: English, Vietnamese, Korean, and Japanese.
+
+Q: Is MyStorage a verified, reputable business?
+A: Yes — MyStorage has 650+ five-star reviews from verified customers and is an official member of the Self Storage Association of Asia (SSAA) and the American Chamber of Commerce in Vietnam.
